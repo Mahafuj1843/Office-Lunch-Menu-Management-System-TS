@@ -6,14 +6,6 @@ interface UserDetails {
     createdAt: Date
 }
 
-interface CustomInputProps {
-    type: string;
-    placeholder: string;
-    value: string;
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-    name: string;
-}
-
 interface PaginationProps {
     pageNo: number;
     perPage: number;
@@ -40,16 +32,6 @@ interface Menu {
     createdAt: Data
 }
 
-interface singleMenu {
-    id: number?,
-    title: string?,
-    desc: string?,
-    date: Date?,
-    extras: string[]?,
-    createdAt: Date?,
-    updatedAt: Date?
-}
-
 interface MenuCardProps {
     menu: Menu,
     setShowPopup: (i: boolean) => void;
@@ -71,4 +53,25 @@ interface MenuReq {
     title: string,
     desc: string,
     mDate: any,
+}
+
+interface ChoiceList {
+    id: number,
+    extras: string[],
+    createdAt: Date,
+    user: {
+        name: string,
+    }
+    menu: {
+        title: string
+    }
+}
+
+interface MyChoiceList {
+    id: number,
+    extras: string[],
+    createdAt: Date,
+    menu: {
+        title: string
+    }
 }
