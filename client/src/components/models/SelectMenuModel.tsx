@@ -1,6 +1,7 @@
 import React, { ChangeEvent, Fragment, useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../store/store';
+import { createChoiceRequest } from '../../apiRequest/choiceRequest';
 
 const SelectMenuModel: React.FC<SelectMenuModelProps> = ({ showPopup, setShowPopup }) => {
     let navigate = useNavigate();
@@ -18,8 +19,13 @@ const SelectMenuModel: React.FC<SelectMenuModelProps> = ({ showPopup, setShowPop
         }
     };
 
-    const onSubmit = async () =>{
-        
+    const onSubmit = async (): Promise<void> =>{
+        const result: boolean = await createChoiceRequest(extras, Menu.id)
+
+        if(result){
+            setShowPopup(!showPopup)
+            navigate('/myChoice')
+        }
     }
 
     return (
