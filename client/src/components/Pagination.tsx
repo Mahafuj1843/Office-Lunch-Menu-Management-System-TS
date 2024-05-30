@@ -1,13 +1,7 @@
+import React from 'react';
 import ReactPaginate from 'react-paginate'
 
-interface PaginationProps {
-    pageNo: number;
-    perPage: number;
-    total: number,
-    handlePageClick: ()=> void
-}
-
-const Pagination = ({pageNo, perPage,  total, handlePageClick}: PaginationProps) => {
+const Pagination: React.FC<PaginationProps> = ({pageNo, perPage,  total, handlePageClick}) => {
     const start: number = (((pageNo-1)*perPage)+1);
     const end: number = pageNo*perPage > total ? total : pageNo*perPage;
 

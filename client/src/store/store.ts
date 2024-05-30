@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import settingSlice from "./slice/settingSlice";
+import menuSlice from "./slice/menuSlice";
 
 const store = configureStore({
     reducer: {
         setting: settingSlice,
+        menu: menuSlice,
     },
 });
 
