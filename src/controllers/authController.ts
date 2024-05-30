@@ -1,7 +1,7 @@
 import jwt, { Secret }  from "jsonwebtoken";
 import prisma from "../config/db"
 import { checkHash, makeHash } from "../utils/hash";
-import { createError } from './../utils/error';
+import { createError } from "../utils/error";
 import { NextFunction, Request, Response } from "express";
 
 interface User{
