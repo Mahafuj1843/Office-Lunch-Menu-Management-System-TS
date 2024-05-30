@@ -5,8 +5,8 @@ import { NextFunction, Request, Response } from 'express';
 const SECRET_KEY: Secret | any = process.env.JWT
 
 export const verifyToken = (req: Request | any, res: Response, next: NextFunction) => {
-    //   const token: string|null = req.headers.token;
-    const token = req.cookies.access_token
+    //   const token: string|undefined = req.headers.token;
+    const token: string|undefined = req.cookies.access_token
 
     if (!token) return next(createError(401, "You are not authenticated."));
     jwt.verify(token, SECRET_KEY, (err: any, user: any) => {
@@ -18,7 +18,6 @@ export const verifyToken = (req: Request | any, res: Response, next: NextFunctio
 
 // Checking authticate user is admin or not.
 export const isAdmin = (req: Request | any, res: Response, next: NextFunction) => {
-    verifyToken(req, res, next)
     if (req.user.role === "ADMIN") {
         return next()
     }
