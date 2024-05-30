@@ -1,5 +1,26 @@
 interface UserDetails {
-    id: number;
+    id: number,
+    name: string,
+    email: string,
+    role: string,
+    createdAt: Date
+}
+
+interface CustomInputProps {
+    type: string;
+    placeholder: string;
+    value: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     name: string;
-    email: string;
+}
+
+interface RegistrationReq {
+    name: string,
+    email: string,
+    pass: string,
+}
+
+interface LoginReq{
+    email: string,
+    pass: string,
 }
