@@ -1,12 +1,14 @@
 import { Fragment, useState } from 'react'
 import { getToken, getUserDetails } from '../helpers/sessionHelper'
 import { Link } from 'react-router-dom';
+import { LogoutRequest } from '../apiRequest/authRequest';
 
 const Header = () => {
     const [myMenu, setMyMenu] = useState<boolean>(false);
 
     const onLogout = async (): Promise<void> => {
-        
+        const result: boolean = await LogoutRequest();
+        if (result) window.location.href = '/'
     }
 
     return (
