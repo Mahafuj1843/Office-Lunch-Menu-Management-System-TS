@@ -11,10 +11,7 @@ const UserProtectedRoute = ({ children }: UserProtectedRouteProps): any => {
         return <Navigate to="/login" />;
     }
 
-    const userDetailsString = localStorage.getItem("UserDetails");
-    if (!userDetailsString) {
-        return <Navigate to="/" />;
-    }
+    const userDetailsString: any = localStorage.getItem("UserDetails");
 
     if (JSON.parse(userDetailsString).role === "USER")
         return children;

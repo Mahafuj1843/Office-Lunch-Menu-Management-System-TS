@@ -6,14 +6,11 @@ class SessionHelper{
         return localStorage.getItem("token")
     }
 
-    setUserDetails(UserDetails: any): void{
+    setUserDetails(UserDetails: UserDetails): void{
         localStorage.setItem("UserDetails", JSON.stringify(UserDetails))
     }
     getUserDetails(): any{
-        const userDetailsString = localStorage.getItem("UserDetails");
-        if (!userDetailsString) {
-            return null;
-        }
+        const userDetailsString: any = localStorage.getItem("UserDetails");
         return JSON.parse(userDetailsString)
     }
 
