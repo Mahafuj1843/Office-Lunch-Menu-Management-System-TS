@@ -1,15 +1,20 @@
-import { useState } from 'react'
+import { Fragment } from 'react'
 import './App.css'
+import { BrowserRouter, Routes } from 'react-router-dom'
+import ScreenLoader from './components/ScreenLoader'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-      Hello world!
-    </h1>
-    </>
+    <Fragment>
+      <BrowserRouter>
+        <Routes>
+        </Routes>
+      </BrowserRouter>
+      <ScreenLoader />
+      <Toaster position="top-center" />
+    </Fragment>
   )
 }
 
